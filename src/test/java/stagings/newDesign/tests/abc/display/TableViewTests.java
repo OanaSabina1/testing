@@ -37,7 +37,7 @@ public class TableViewTests extends BaseTest {
 
     @Test
     public void loginWithValidCredentialsdb() {
-        loginPage.loginFunctionality("https://newdesign.lcm-client.com/login", "team db", "Parola1993!");
+        loginPage.loginFunctionality(URL_DB, "team db", "Parola1993!");
     }
 
     @Test
