@@ -45,17 +45,17 @@ public class BaseTest {
         chromeOptions.addArguments("--proxy-bypass-list=*");
         chromeOptions.addArguments("--ignore-certificate-errors");
 
-        try {
-            Runtime.getRuntime().exec("taskkill /F /IM chromedriver.exe /T");
-        } catch (Exception ignore) {}
+//        try {
+//            Runtime.getRuntime().exec("taskkill /F /IM chromedriver.exe /T");
+//        } catch (Exception ignore) {}
 
 
         // return driver = new FirefoxDriver();
         return driver = new ChromeDriver();
     }
 
-//  @AfterMethod
-//  public void tearDown() {
-//    driver.quit();
-//  }
-//}
+  @AfterMethod
+  public void tearDown() {
+    driver.quit();
+  }
+}

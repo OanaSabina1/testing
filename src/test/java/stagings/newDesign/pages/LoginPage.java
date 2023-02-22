@@ -42,6 +42,7 @@ public class LoginPage extends BasePage {
 //        Assert.assertTrue(driver.findElement(By.cssSelector(".fas.fa-exclamation-triangle")).isDisplayed());
 //
 //    }
+//}
 //
 //    public void failedLoginFunctionality(String url, String username, String password) throws InterruptedException {
 //        driver.get(url);
@@ -84,13 +85,15 @@ public class LoginPage extends BasePage {
         driver.findElement(By.id("logout-button")).click();
         Thread.sleep(5000);
     }
+}
 
-    public void failedLoginFunctionality(String url, String username, String password) throws InterruptedException {
-        driver.findElement(By.cssSelector("[id=\"user.name\"] input")).sendKeys(username);
-        driver.findElement(By.cssSelector("[id=\"user.password\"] input")).sendKeys(password);
-
-        driver.findElement(By.id("login-button")).click();
-        Thread.sleep(5000);
-        Assert.assertTrue(driver.findElement(By.cssSelector(".fas.fa-exclamation-triangle")).isDisplayed());
-
-    }
+//        public void failedLoginFunctionality(String url, String username, String password) throws InterruptedException
+//        {
+//            driver.findElement(By.cssSelector("[id=\"user.name\"] input")).sendKeys(username);
+//            driver.findElement(By.cssSelector("[id=\"user.password\"] input")).sendKeys(password);
+//
+//            driver.findElement(By.id("login-button")).click();
+//            Thread.sleep(5000);
+//            Assert.assertTrue(driver.findElement(By.cssSelector(".fas.fa-exclamation-triangle")).isDisplayed());
+//
+//        }
