@@ -20,24 +20,35 @@ public class TableViewTests extends BaseTest {
         loginPage = new LoginPage(driver);
     }
 
-    @Test
-    public void loginWithValidCredentials() throws InterruptedException {
-        loginPage.loginFunctionality(URL_ABC, GABRIEL_ACCOUNT, PASSWORD);
-    }
+//    @Test
+//    public void loginWithValidCredentials() throws InterruptedException {
+//        loginPage.loginFunctionality(URL_NS, TEAM_ACCOUNT, PASSWORD);
+//    }
+
+//    @Test
+//    public void loginWithValidCredentialsbvg() throws InterruptedException {
+//        loginPage.loginFunctionality("https://newdesign.lcm-client.com/login", "user bvg", "Parola1993!");
+//    }
+
+//    @Test
+//    public void loginWithValidCredentialsdb() throws InterruptedException {
+//        loginPage.loginFunctionality(URL_DB, "team db", "Parola1993!");
+//    }
+
+//    @Test
+//    public void loginWithValidCredentialscardio() throws InterruptedException {
+//        loginPage.loginFunctionality("https://newdesign.lcm-client.com/login", "team cardio", "Parola1993!");
+//    }
+//
+//    @Test
+//    public void loginWithValidCredentialsORICE() throws InterruptedException {
+//        loginPage.
+//                loginFunctionality("https://newdesign.lcm-client.com/login", "user bvg", PASSWORD_WRONG);
+//    }
 
     @Test
-    public void loginWithValidCredentialsbvg() throws InterruptedException {
-        loginPage.loginFunctionality("https://newdesign.lcm-client.com/login", "user bvg", "Parola1993!");
-    }
-
-    @Test
-    public void loginWithValidCredentialsdb() throws InterruptedException {
-        loginPage.loginFunctionality(URL_DB, "team db", "Parola1993!");
-    }
-
-    @Test
-    public void loginWithValidCredentialscardio() throws InterruptedException {
-        loginPage.loginFunctionality("https://newdesign.lcm-client.com/login", "team cardio", "Parola1993!");
+    public void failedLoginFunctionalityDE() throws InterruptedException {
+        loginPage.failedLoginFunctionality(URL_NS, TEAM_ACCOUNT, PASSWORD_WRONG);
     }
 
 }
