@@ -47,7 +47,7 @@ public class TableViewTests extends BaseTest {
 //    }
 
     @Test
-    public void failedLoginFunctionalityEN() throws InterruptedException {
+    public void failedLoginFunctionalityDE() throws InterruptedException {
         loginPage.failedLoginFunctionality(URL_NS, TEAM_ACCOUNT, PASSWORD_WRONG);
     }
 
