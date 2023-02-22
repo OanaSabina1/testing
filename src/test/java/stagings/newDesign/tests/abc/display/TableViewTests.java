@@ -20,10 +20,10 @@ public class TableViewTests extends BaseTest {
         loginPage = new LoginPage(driver);
     }
 
-//    @Test
-//    public void loginWithValidCredentials() throws InterruptedException {
-//        loginPage.loginFunctionality(URL_NS, TEAM_ACCOUNT, PASSWORD);
-//    }
+    @Test
+    public void loginWithValidCredentials() throws InterruptedException {
+        loginPage.loginFunctionality(URL_NS, TEAM_ACCOUNT, PASSWORD);
+    }
 
 //    @Test
 //    public void loginWithValidCredentialsbvg() throws InterruptedException {
@@ -50,5 +50,3 @@ public class TableViewTests extends BaseTest {
     public void failedLoginFunctionalityDE() throws InterruptedException {
         loginPage.failedLoginFunctionality(URL_NS, TEAM_ACCOUNT, PASSWORD_WRONG);
     }
-
-}
