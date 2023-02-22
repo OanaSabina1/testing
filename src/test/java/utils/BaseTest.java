@@ -53,9 +53,9 @@ public class BaseTest {
         // return driver = new FirefoxDriver();
         return driver = new ChromeDriver();
     }
-//
-//  @AfterMethod
-//  public void tearDown() {
-//    driver.quit();
-//  }
+
+  @AfterMethod
+  public void tearDown() {
+    driver.quit();
+  }
 }

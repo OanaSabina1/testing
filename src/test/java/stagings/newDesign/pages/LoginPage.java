@@ -29,6 +29,9 @@ public class LoginPage extends BasePage {
         driver.get(url);
         driver.manage().window().maximize();
 
+        driver.findElement(By.xpath("/html/body/app-root/app-auth/div[2]/app-footer/div/div/div/div/div[3]/button")).click();
+        Thread.sleep(5000);
+
         driver.findElement(By.cssSelector("[id=\"user.name\"] input")).sendKeys(username);
         driver.findElement(By.cssSelector("[id=\"user.password\"] input")).sendKeys(password);
 
