@@ -57,7 +57,7 @@ public class BasePage {
     }
 
     public void setLanguage(String language){
-        WebElement element = driver.findElement(By.cssSelector(".app-footer.d-flex"));
+        WebElement element = driver.findElement(By.cssSelector(".app-footer .btn-group"));
         je.executeScript("arguments[0].scrollIntoView(true);", element);
         Thread.sleep(1000);
     }
