@@ -56,7 +56,7 @@ public class LoginPage extends BasePage {
 
         driver.findElement(By.id("login-button")).click();
         Thread.sleep(5000);
-      Assert.assertEquals(readText(By.cssSelector("top-bar .error-notification")), "Name oder Passwort ist falsch");
+        Assert.assertEquals(readText(By.cssSelector(".error-notification")), "Name oder Passwort ist falsch");
     }
 }
 
