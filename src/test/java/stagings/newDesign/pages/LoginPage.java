@@ -6,7 +6,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import utils.BasePage;
-import static org.testng.Assert.assertTrue;
 
 
 public class LoginPage extends BasePage {
@@ -57,8 +56,7 @@ public class LoginPage extends BasePage {
 
         driver.findElement(By.id("login-button")).click();
         Thread.sleep(5000);
-        boolean presence = driver.getPageSource().contains("Name oder Passwort ist falsch.");
-        Assert.assertTrue(presence);
+      Assert.assertEquals(readText(By.cssSelector("top-bar .error-notification")), "Name oder Passwort ist falsch");
     }
 }
 

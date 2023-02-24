@@ -6,6 +6,7 @@ import org.testng.annotations.Test;
 import stagings.newDesign.pages.*;
 import utils.BaseTest;
 
+
 import java.io.IOException;
 
 import static utils.Constants.*;

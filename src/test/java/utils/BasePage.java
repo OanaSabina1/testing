@@ -51,4 +51,13 @@ public class BasePage {
         Assert.assertTrue(presence);
     }
 
+    public void assertEquals(By elementBy, String expectedText) {
+        waitVisibility(elementBy);
+        Assert.assertEquals(readText(elementBy), expectedText);
+    }
+
+
+
+
+
 }
