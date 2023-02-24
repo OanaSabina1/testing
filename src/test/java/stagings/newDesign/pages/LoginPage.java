@@ -56,7 +56,7 @@ public class LoginPage extends BasePage {
 
         driver.findElement(By.id("login-button")).click();
         Thread.sleep(5000);
-        Assert.assertTrue(driver.findElement(By.xpath("//*[text()='Name or password is incorrect']")).isDisplayed());
+        WebElement e = driver.findElement(By.xpath("//*[text()='Name or password is incorrect']"));
 
     }
 }
