@@ -56,6 +56,13 @@ public class BasePage {
         Assert.assertEquals(readText(elementBy), expectedText);
     }
 
+    public void setLanguage(String language){
+        WebElement element = driver.findElement(By.cssSelector(".app-footer.d-flex"));
+        je.executeScript("arguments[0].scrollIntoView(true);", element);
+        Thread.sleep(1000);
+    }
+
+
 
 
 

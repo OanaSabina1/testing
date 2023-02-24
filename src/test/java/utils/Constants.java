@@ -8,5 +8,6 @@ public class Constants {
     public static String TEAM_ACCOUNT = "team NS";
     public static String PASSWORD = "Parola1993!";
     public static String PASSWORD_WRONG = "Parola!";
+    public static String LANGUAGE = "DE";
 
 }
