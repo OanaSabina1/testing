@@ -35,4 +35,14 @@ public class BasePage {
         return driver.findElement(elementBy).getAttribute(attribute);
     }
 
+    public void logOut(By elementBy) {
+        waitVisibility(elementBy);
+        driver.findElement(elementBy).click();
+    }
+
+    public String readText(By elementBy) {
+        waitVisibility(elementBy);
+        return driver.findElement(elementBy).getText();
+    }
+
 }
