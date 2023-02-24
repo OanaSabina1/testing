@@ -20,11 +20,10 @@ public class TableViewTests extends BaseTest {
         loginPage = new LoginPage(driver);
     }
 
-    @Test
-    public void loginWithValidCredentials() throws InterruptedException {
-        loginPage.loginFunctionality(URL_NS, TEAM_ACCOUNT, PASSWORD);
-    }
-}
+//    @Test
+//    public void loginWithValidCredentials() throws InterruptedException {
+//        loginPage.loginFunctionality(URL_NS, TEAM_ACCOUNT, PASSWORD);
+//    }
 
 //    @Test
 //    public void loginWithValidCredentialsbvg() throws InterruptedException {
@@ -47,8 +46,8 @@ public class TableViewTests extends BaseTest {
 //                loginFunctionality("https://newdesign.lcm-client.com/login", "user bvg", PASSWORD_WRONG);
 //    }
 
-//    @Test
-//    public void failedLoginFunctionalityDE() throws InterruptedException {
-//        loginPage.failedLoginFunctionality(URL_NS, TEAM_ACCOUNT, PASSWORD_WRONG);
-//    }
-//}
+    @Test
+    public void failedLoginFunctionalityDE() throws InterruptedException {
+        loginPage.failedLoginFunctionality(URL_NS, TEAM_ACCOUNT, PASSWORD_WRONG);
+    }
+}
