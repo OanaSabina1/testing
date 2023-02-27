@@ -48,7 +48,7 @@ public class LoginPage extends BasePage {
         driver.get(url);
         driver.manage().window().maximize();
 
-        driver.findElement(By.cssSelector("app-footer .btn-group")).click();
+        driver.findElement(By.cssSelector("body > app-root > app-auth > div.app-footer > app-footer > div > div > div > div > div:nth-child(3) > button")).click();
         Thread.sleep(5000);
 
         driver.findElement(By.cssSelector("[id=\"user.name\"] input")).sendKeys(username);
@@ -56,7 +56,7 @@ public class LoginPage extends BasePage {
 
         driver.findElement(By.id("login-button")).click();
         Thread.sleep(5000);
-        Assert.assertEquals(readText(By.cssSelector(".error-notification")), "Name oder Passwort ist falsch");
+        Assert.assertEquals(readText(By.xpath("/html/body/app-root/app-auth/div[1]/div/div/text()"), "Name or password is incorrect"));
     }
 }
 
