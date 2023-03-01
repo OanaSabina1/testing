@@ -60,19 +60,15 @@ public class BasePage {
         Assert.assertEquals(readText(elementBy), expectedText);
     }
 
-    public void setLanguage(String language) throws InterruptedException {
-        WebElement footer = driver.findElement(By.cssSelector("app-footer .btn-group"));
-        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", footer);
-        Thread.sleep(2000);
-        List<WebElement> list = driver.findElements(By.cssSelector("app-footer .btn-group button"));
+    public void scrollDown(By elementBy) {
+        JavascriptExecutor je = (JavascriptExecutor) driver;
+        WebElement element = driver.findElement(elementBy);
+        je.executeScript("arguments[0].scrollIntoView(true);", element);
+    }
 
-
-        for (WebElement e : list) {
-            if (e.getText().contains(language)) {
-                System.out.println(e.getText());
-                e.click();
-                break;
-            }
-        }
+    public void selectNlLanguage(By elementBy){
+        waitVisibility(elementBy);
+        driver.findElement(elementBy).click();
     }
 }
+

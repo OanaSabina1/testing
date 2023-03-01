@@ -1,6 +1,7 @@
 package stagings.newDesign.tests.abc.display;
 
 import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import stagings.newDesign.pages.*;
@@ -21,34 +22,26 @@ public class TableViewTests extends BaseTest {
         loginPage = new LoginPage(driver);
     }
 
-//    @Test
-//    public void loginWithValidCredentials() throws InterruptedException {
-//        loginPage.loginFunctionality(URL_NS, TEAM_ACCOUNT, PASSWORD);
-//    }
+    @Test
+    public void failedLoginFunctionality() throws InterruptedException {
+        loginPage.openSpecificUrl(URL_NS);
+        loginPage.checkLoginErrorText(TEAM_ACCOUNT, PASSWORD_WRONG, 2, "Name oder Passwort ist falsch.");
+        loginPage.checkLoginErrorText(TEAM_ACCOUNT, PASSWORD_WRONG, 3, "Name or password is incorrect.");
 
-//    @Test
-//    public void loginWithValidCredentialsbvg() throws InterruptedException {
-//        loginPage.loginFunctionality("https://newdesign.lcm-client.com/login", "user bvg", "Parola1993!");
-//    }
-
-//    @Test
-//    public void loginWithValidCredentialsdb() throws InterruptedException {
-//        loginPage.loginFunctionality(URL_DB, "team db", "Parola1993!");
-//    }
-
-//    @Test
-//    public void loginWithValidCredentialscardio() throws InterruptedException {
-//        loginPage.loginFunctionality("https://newdesign.lcm-client.com/login", "team cardio", "Parola1993!");
-//    }
-//
-//    @Test
-//    public void loginWithValidCredentialsORICE() throws InterruptedException {
-//        loginPage.
-//                loginFunctionality("https://newdesign.lcm-client.com/login", "user bvg", PASSWORD_WRONG);
-//    }
+    }
 
     @Test
-    public void failedLoginFunctionalityDE() throws InterruptedException {
-        loginPage.failedLoginFunctionality(URL_NS, TEAM_ACCOUNT, PASSWORD_WRONG);
+    public void checkNLErrorForLogin() {
+        //login cu credentiale corecte
+        loginPage.openSpecificUrl(URL_NS);
+        loginPage.login(TEAM_ACCOUNT, PASSWORD);
+
+        //scroll pana la footer
+
+        //click pe NL
+        //scroll pana dai de log out button
+        //click log out
+        //login cu credentiale gresite
+        //verifica mesajul de eroare
     }
 }

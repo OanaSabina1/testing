@@ -7,6 +7,8 @@ import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import utils.BasePage;
 
+import static utils.Constants.*;
+
 
 public class LoginPage extends BasePage {
 
@@ -14,85 +16,33 @@ public class LoginPage extends BasePage {
         super(driver);
     }
 
-//    public void loginFunctionality(String url, String username, String password) throws InterruptedException {
-//        driver.get(url);
-//        driver.manage().window().maximize();
-//
-//        driver.findElement(By.cssSelector("[id=\"user.name\"] input")).sendKeys(username);
-//        driver.findElement(By.cssSelector("[id=\"user.password\"] input")).sendKeys(password);
-//
-//        driver.findElement(By.id("login-button")).click();
-//        Thread.sleep(5000);
-//        Assert.assertTrue(driver.findElement(By.cssSelector(".fa-folder-plus")).isDisplayed());
-//
-//    }
+    By loginButton = By.id("login-button");
+    By userNameInput = By.cssSelector("[id=\"user.name\"] input");
+    By userPasswordInput = By.cssSelector("[id=\"user.password\"] input");
+    By errorNotification = By.cssSelector("app-auth > div.top-bar.error-notification > div > div");
+    By nlLanguageButton = By.cssSelector("app-footer  div > div > div > div:nth-child(1)");
 
-//        public void failedLoginFunctionality(String url, String username, String password) throws InterruptedException {
-//        driver.get(url);
-//        driver.manage().window().maximize();
-//
-//        driver.findElement(By.cssSelector()
-//        Thread.sleep(5000);
-//
-//        driver.findElement(By.cssSelector("[id=\"user.name\"] input")).sendKeys(username);
-//        driver.findElement(By.cssSelector("[id=\"user.password\"] input")).sendKeys(password);
-//
-//        driver.findElement(By.id("login-button")).click();
-//        Thread.sleep(5000);
-//        Assert.assertTrue(driver.findElement(By.cssSelector(".fas.fa-exclamation-triangle")).isDisplayed());
-//
-//    }
-//}
-//
-    public void failedLoginFunctionality(String url, String username, String password) throws InterruptedException {
+        public void checkLoginErrorText(String username, String password, int x, String expected) throws InterruptedException {
+        driver.findElement(By.cssSelector("app-footer  div > div > div > div:nth-child("+ x +")")).click();
+        Thread.sleep(5000);
+
+        login(username, password);
+        Thread.sleep(5000);
+
+        Assert.assertEquals(readText(errorNotification), expected);
+    }
+
+    public void openSpecificUrl(String url) {
         driver.get(url);
         driver.manage().window().maximize();
-
-        driver.findElement(By.cssSelector("body > app-root > app-auth > div.app-footer > app-footer > div > div > div > div > div:nth-child(3) > button")).click();
-        Thread.sleep(5000);
-
-        driver.findElement(By.cssSelector("[id=\"user.name\"] input")).sendKeys(username);
-        driver.findElement(By.cssSelector("[id=\"user.password\"] input")).sendKeys(password);
-
-        driver.findElement(By.id("login-button")).click();
-        Thread.sleep(5000);
-        Assert.assertEquals(readText(By.xpath("/html/body/app-root/app-auth/div[1]/div/div/text()"), "Name or password is incorrect"));
     }
+
+    public void login(String username, String password) {
+        writeText(userNameInput, username);
+        writeText(userPasswordInput, password);
+        click(loginButton);
+    }
+
+    public void
 }
 
-//    public void loginFunctionality(String url, String username, String password) throws InterruptedException {
-//        driver.get(url);
-//        driver.manage().window().maximize();
-//        JavascriptExecutor je = (JavascriptExecutor) driver;
-//
-//        driver.findElement(By.cssSelector("[id=\"user.name\"] input")).sendKeys(username);
-//        driver.findElement(By.cssSelector("[id=\"user.password\"] input")).sendKeys(password);
-//
-//        driver.findElement(By.id("login-button")).click();
-//        Thread.sleep(5000);
-//        Assert.assertTrue(driver.findElement(By.cssSelector(".fa-folder-plus")).isDisplayed());
-//
-//        WebElement element = driver.findElement(By.cssSelector(".app-footer.d-flex"));
-//        je.executeScript("arguments[0].scrollIntoView(true);", element);
-//        Thread.sleep(1000);
-//
-//        driver.findElement(By.xpath("/html/body/app-root/app-main/div[2]/app-footer/div/div/div/div/div[1]/button")).click();
-//        Thread.sleep(10000);
-//        WebElement element1 = driver.findElement(By.id("logout-button"));
-//        je.executeScript("arguments[0].scrollIntoView(true);", element1);
-//        Thread.sleep(5000);
-//
-//        driver.findElement(By.id("logout-button")).click();
-//        Thread.sleep(5000);
-//    }
-//
-//    public void failedLoginFunctionality(String url, String username, String password) throws InterruptedException {
-//        driver.findElement(By.cssSelector("[id=\"user.name\"] input")).sendKeys(username);
-//        driver.findElement(By.cssSelector("[id=\"user.password\"] input")).sendKeys(password);
-//
-//        driver.findElement(By.id("login-button")).click();
-//        Thread.sleep(5000);
-//        Assert.assertTrue(driver.findElement(By.cssSelector(".fas.fa-exclamation-triangle")).isDisplayed());
-//
-//    }
-//}

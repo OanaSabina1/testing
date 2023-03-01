@@ -9,5 +9,6 @@ public class Constants {
     public static String PASSWORD = "Parola1993!";
     public static String PASSWORD_WRONG = "Parola!";
     public static String LANGUAGE = "DE";
+    public static String NAME = "This is workiiiing";
 
 }
