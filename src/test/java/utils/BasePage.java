@@ -12,6 +12,7 @@ import java.time.Duration;
 import java.util.List;
 
 public class BasePage {
+
     public WebDriver driver;
     public WebDriverWait wait;
     private JavascriptExecutor je;
@@ -23,6 +24,7 @@ public class BasePage {
 
     public void writeText(By elementBy, String text) {
         waitVisibility(elementBy);
+        driver.findElement(elementBy).clear();
         driver.findElement(elementBy).sendKeys(text);
     }
 
@@ -30,19 +32,18 @@ public class BasePage {
         wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(elementBy));
     }
 
-    public void click(By elementBy) {
+    public void click(By elementBy) throws InterruptedException {
         waitVisibility(elementBy);
+        JavascriptExecutor je = (JavascriptExecutor) driver;
+        WebElement element = driver.findElement(elementBy);
+        je.executeScript("arguments[0].scrollIntoView(true);", element);
+        Thread.sleep(1500);
         driver.findElement(elementBy).click();
     }
 
     public String readAttribute(By elementBy, String attribute) {
         waitVisibility(elementBy);
         return driver.findElement(elementBy).getAttribute(attribute);
-    }
-
-    public void logOut(By elementBy) {
-        waitVisibility(elementBy);
-        driver.findElement(elementBy).click();
     }
 
     public String readText(By elementBy) {
@@ -60,15 +61,15 @@ public class BasePage {
         Assert.assertEquals(readText(elementBy), expectedText);
     }
 
-    public void scrollDown(By elementBy) {
-        JavascriptExecutor je = (JavascriptExecutor) driver;
-        WebElement element = driver.findElement(elementBy);
-        je.executeScript("arguments[0].scrollIntoView(true);", element);
-    }
-
     public void selectNlLanguage(By elementBy){
         waitVisibility(elementBy);
         driver.findElement(elementBy).click();
     }
+
+    public void selectLanguage(int languagePosition) throws InterruptedException {
+        By x = By.cssSelector("app-footer  div > div > div > div:nth-child("+ languagePosition +")");
+        click(x);
+    }
+
 }
 

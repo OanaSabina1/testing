@@ -20,10 +20,10 @@ public class LoginPage extends BasePage {
     By userNameInput = By.cssSelector("[id=\"user.name\"] input");
     By userPasswordInput = By.cssSelector("[id=\"user.password\"] input");
     By errorNotification = By.cssSelector("app-auth > div.top-bar.error-notification > div > div");
-    By nlLanguageButton = By.cssSelector("app-footer  div > div > div > div:nth-child(1)");
 
-        public void checkLoginErrorText(String username, String password, int x, String expected) throws InterruptedException {
-        driver.findElement(By.cssSelector("app-footer  div > div > div > div:nth-child("+ x +")")).click();
+
+        public void checkLoginErrorText(String username, String password, int languagePosition, String expected) throws InterruptedException {
+        driver.findElement(By.cssSelector("app-footer  div > div > div > div:nth-child("+ languagePosition +")")).click();
         Thread.sleep(5000);
 
         login(username, password);
@@ -37,12 +37,14 @@ public class LoginPage extends BasePage {
         driver.manage().window().maximize();
     }
 
-    public void login(String username, String password) {
+    public void login(String username, String password) throws InterruptedException {
         writeText(userNameInput, username);
         writeText(userPasswordInput, password);
         click(loginButton);
+
+        Thread.sleep(5000);
     }
 
-    public void
+
 }
 

@@ -17,6 +17,7 @@ public class BaseTest {
     public WebDriver driver;
 
     public WebDriver initializeDriver() throws IOException {
+        System.setProperty("webdriver.http.factory", "jdk-http-client");
         if (!IS_OS_WINDOWS && !IS_OS_LINUX && !IS_OS_MAC) {
             throw new RuntimeException("Could not initialize browser due to unknown operating system!");
         }
@@ -44,6 +45,7 @@ public class BaseTest {
         chromeOptions.addArguments("--proxy-server='direct://'");
         chromeOptions.addArguments("--proxy-bypass-list=*");
         chromeOptions.addArguments("--ignore-certificate-errors");
+        chromeOptions.addArguments("--remote-allow-origins=*");
 
         try {
             Runtime.getRuntime().exec("taskkill /F /IM chromedriver.exe /T");
