@@ -1,4 +1,4 @@
-package stagings.newDesign.tests.abc.display;
+package stagings.newDesign.tests;
 
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.BeforeMethod;
@@ -19,6 +19,7 @@ public class LoginTests extends BaseTest {
     private BasePage basePage;
     private NavBar navBar;
 
+
     @BeforeMethod
     public void setUp() throws IOException {
         WebDriver driver = initializeDriver();
@@ -30,8 +31,8 @@ public class LoginTests extends BaseTest {
     @Test
     public void failedLoginFunctionality() throws InterruptedException {
         loginPage.openSpecificUrl(URL_NS);
-        loginPage.checkLoginErrorText(TEAM_ACCOUNT, PASSWORD_WRONG, 2, "Name oder Passwort ist falsch.");
         loginPage.checkLoginErrorText(TEAM_ACCOUNT, PASSWORD_WRONG, 3, "Name or password is incorrect.");
+        loginPage.checkLoginErrorText(TEAM_ACCOUNT, PASSWORD_WRONG, 2, "Name oder Passwort ist falsch.");
 
     }
 
@@ -54,4 +55,5 @@ public class LoginTests extends BaseTest {
         loginPage.checkLoginErrorText(TEAM_ACCOUNT, PASSWORD_WRONG, 1, "Naam of Wachtwoord is niet correct.");
 
     }
+
 }
