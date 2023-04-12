@@ -5,10 +5,23 @@ import org.openqa.selenium.WebDriver;
 import utils.BasePage;
 
 public class MainMenu extends BasePage {
+    public Object pressCreateCase;
+
     public MainMenu(WebDriver driver) {
         super(driver);
     }
 
-    By newCaseButton = By.className(".btn-sm.btn-default-red.mt-2");
+    By createCaseButton = By.cssSelector(".fas.fa-folder-plus");
+    By CPNInput = By.cssSelector("[id=\"thread.artNumber\"] input");
+    By designationOfTheItem = By.cssSelector("[id=\"thread.omfShortDescr\"] input");
 
+    public void pressCreateCase() throws InterruptedException {
+        click(createCaseButton);
+        Thread.sleep(5000);
+    }
+
+    public void completeCPNField (int CPNField) throws InterruptedException {
+        writeText(CPNInput, CPNField);
+
+    }
 }

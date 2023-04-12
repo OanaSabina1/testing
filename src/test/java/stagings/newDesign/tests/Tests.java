@@ -1,23 +1,16 @@
 package stagings.newDesign.tests;
 
-import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import stagings.newDesign.pages.LoginPage;
-import stagings.newDesign.pages.MainMenu;
-import stagings.newDesign.pages.NavBar;
-import utils.BasePage;
-import utils.BaseTest;
 
-import java.io.Console;
 import java.io.IOException;
-import java.util.Scanner;
+import java.util.Arrays;
+import java.util.Random;
 
 import static org.apache.commons.lang3.RandomUtils.nextInt;
-import static org.openqa.selenium.net.LinuxEphemeralPortRangeDetector.getInstance;
-import static utils.Constants.*;
 
-public class CreateNewCaseTests {
+public class Tests {
 
     @BeforeMethod
     public void setUp() throws IOException {
@@ -125,8 +118,46 @@ public class CreateNewCaseTests {
     }
 
     @Test
-    public void test12(){
-    int x = 0;
-    int y = getInstance(int 1,int 10);
+    public void test12() {
+        int nr = 80;
+        for (int i = 2; i <= 10; i++)
+            if (nr % i == 0) System.out.println(i);
+    }
+
+    @Test
+    public void test13() {
+        int nr = 50;
+        for (int i = 2; i <= 10; ++i)
+            if (nr % i == 0) System.out.println(i);
+            else System.out.println("2 nu este divizor");
+        for (int i = 3; i <= 10; ++i)
+            if (nr % i == 0) System.out.println(i);
+            else System.out.println("3 nu este divizor");
+    }
+
+    @Test
+    public static void assertTrue(){
+        Random random = new Random();
+        int rand = random.nextInt();
+        String x = "Number of manufacturers fetched: " + rand + "\n" +
+                "Number of parts fetched: 234";
+        String x1 = x.replace("Number of manufacturers fetched: ", "");
+        String y = x1.substring(0, x1.indexOf("\n" + "Number of parts fetched"));
+        int z = Integer.parseInt(y);
+        System.out.println(z);
+        boolean w;
+        if (z > 0) {
+            w = true;
+        } else {
+            w = false;
+        }
+        System.out.println(w);
     }
 }
+
+//    @Test
+//    public void test15(){
+//        const str = 'Number of manufacturers fetched: 100\\n +\n Number of parts fetched: 234';
+//        const result = str.split('Number of parts fetched')[0];
+//        console.log(result);
+//    }
