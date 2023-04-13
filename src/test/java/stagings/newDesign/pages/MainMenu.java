@@ -15,13 +15,15 @@ public class MainMenu extends BasePage {
     By CPNInput = By.cssSelector("[id=\"thread.artNumber\"] input");
     By designationOfTheItem = By.cssSelector("[id=\"thread.omfShortDescr\"] input");
 
+
     public void pressCreateCase() throws InterruptedException {
         click(createCaseButton);
         Thread.sleep(5000);
     }
 
-    public void completeCPNField (int CPNField) throws InterruptedException {
-        writeText(CPNInput, CPNField);
-
+    public void completeCPNField (String CPN) throws InterruptedException {
+        writeText(CPNInput, String.valueOf(4023));
     }
+
+
 }

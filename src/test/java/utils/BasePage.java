@@ -10,6 +10,8 @@ import org.testng.Assert;
 
 import java.time.Duration;
 import java.util.List;
+import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class BasePage {
 
@@ -69,6 +71,23 @@ public class BasePage {
     public void selectLanguage(int languagePosition) throws InterruptedException {
         By x = By.cssSelector("app-footer  div > div > div > div:nth-child("+ languagePosition +")");
         click(x);
+    }
+
+//    public void selectRandomValueFromDropdown() {
+//        WebElement dropdown = driver.findElement(By.cssSelector("[id=\"thread.changeClasses\"] input"));
+//        dropdown.click();
+//        List<WebElement> itemsInDropdown = driver.findElements(By.cssSelector("[id=\"thread.changeClasses\"] input"));
+//        int size = itemsInDropdown.size();
+//        int randomNumber = ThreadLocalRandom.current().nextInt(1, size);
+//        itemsInDropdown.get(randomNumber).click();
+//    }
+
+    public void
+    selectRandomValueFromDropdown() {
+        List<WebElement> options = driver.findElements(By.cssSelector("[id=\"thread.changeClasses\"] input"));
+        Random rand = new Random();
+        int list= rand.nextInt(options.size());
+        options.get(list).click();
     }
 
 }
