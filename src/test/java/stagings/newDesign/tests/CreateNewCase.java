@@ -25,7 +25,6 @@ public class CreateNewCase extends BaseTest {
     private NavBar navBar;
     private MainMenu mainMenu;
 
-
     @BeforeMethod
     public void setUp() throws IOException {
         WebDriver driver = initializeDriver();
@@ -47,7 +46,7 @@ public class CreateNewCase extends BaseTest {
         mainMenu.completeCPNField();
 
         Thread.sleep(2000);
-        basePage.selectValue();
+        basePage.selectRandomValueFromDropdown();
     }
 
 }
