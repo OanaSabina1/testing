@@ -47,7 +47,7 @@ public class CreateNewCase extends BaseTest {
         mainMenu.completeCPNField();
 
         Thread.sleep(2000);
-        basePage.selectRandomValueFromDropdown();
+        basePage.selectValue();
     }
 
 }

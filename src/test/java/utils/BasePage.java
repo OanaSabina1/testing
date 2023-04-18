@@ -5,6 +5,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
@@ -82,13 +83,28 @@ public class BasePage {
 //        itemsInDropdown.get(randomNumber).click();
 //    }
 
-    public void
-    selectRandomValueFromDropdown() {
+    public void selectRandomValueFromDropdown() {
         List<WebElement> options = driver.findElements(By.cssSelector("[id=\"thread.changeClasses\"] input"));
         Random rand = new Random();
-        int list= rand.nextInt(options.size());
+        int list = rand.nextInt(options.size());
         options.get(list).click();
     }
 
+    public void selectValue(){
+        Select objSelect = new Select(driver.findElement(By.cssSelector("[id=\"thread.changeClasses\"] input"));
+        List <WebElement> elementCount = oSelect.getOptions();
+        System.out.println(elementCount.size());
+    }
+
+    public class DropdownExample {
+        public void main(String[] args) {
+            WebElement dropdown = driver.findElement(By.cssSelector("[id=\"thread.changeClasses\"] input"));
+            dropdown.click();
+            List<WebElement> options = dropdown.findElements(By.tagName("option"));
+            int randomIndex = new Random().nextInt(options.size());
+            options.get(randomIndex).click();
+            driver.quit();
+        }
+}
 }
 

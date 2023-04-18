@@ -21,7 +21,7 @@ public class MainMenu extends BasePage {
         Thread.sleep(5000);
     }
 
-    public void completeCPNField (String CPN) throws InterruptedException {
+    public void completeCPNField () throws InterruptedException {
         writeText(CPNInput, String.valueOf(4023));
     }
 
