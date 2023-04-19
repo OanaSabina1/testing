@@ -75,9 +75,10 @@ public class BasePage {
     }
 
     public void selectRandomValueFromDropdown() throws InterruptedException {
-        String s = "dropdown-menu show ng-star-inserted";
-        List<WebElement> itemsInDropdown = driver.findElements(By.className(s));
-            int size = itemsInDropdown.size();
+        List<WebElement> itemsInDropdown = driver.findElements(By.cssSelector("[role=listbox]"));
+        JavascriptExecutor  js  = (JavascriptExecutor)  driver;
+        js.executeScript("arguments[0].value, itemsInDropdown);
+        int size = itemsInDropdown.size();
         System.out.println(size);
             int randnMumber = ThreadLocalRandom.current().nextInt(0, size);
         System.out.println(randnMumber);
