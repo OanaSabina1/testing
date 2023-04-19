@@ -12,6 +12,7 @@ import org.testng.Assert;
 import java.time.Duration;
 import java.util.List;
 import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class BasePage {
 
@@ -73,10 +74,21 @@ public class BasePage {
         click(x);
     }
 
-//    public void selectRandomValueFromDropdown() {
-//        WebElement dropdown = driver.findElement(By.cssSelector("[id=\"thread.changeClasses\"] input"));
+    public void selectRandomValueFromDropdown() throws InterruptedException {
+        WebElement dropdown = driver.findElement(By.cssSelector("[role=listbox]"));
+        for (int i = 0; i < 10; i++) {
+            dropdown.click();
+//            WebDriverWait wait = new WebDriverWait(driver, 100);
+            wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.cssSelector("[role=listbox]"))));
+            List<WebElement> itemsInDropdown = driver.findElements(By.cssSelector("[role=listbox]"));
+            int size = itemsInDropdown.size();
+            int randnMumber = ThreadLocalRandom.current().nextInt(0, size);
+            itemsInDropdown.get(randnMumber).click();
+            Thread.sleep(2000);
+        }
+    }
 //        dropdown.click();
-//        List<WebElement> itemsInDropdown = driver.findElements(By.cssSelector("[id=\"thread.changeClasses\"] input"));
+//        List<WebElement> itemsInDropdown = driver.findElements(By.cssSelector("[role=listbox]"));
 //        int size = itemsInDropdown.size();
 //        int randomNumber = ThreadLocalRandom.current().nextInt(1, size);
 //        itemsInDropdown.get(randomNumber).click();
@@ -97,14 +109,19 @@ public class BasePage {
 //            driver.quit();
 //        }
 
-    public void selectRandomValueFromDropdown() {
-        WebElement dropdown = driver.findElement(By.xpath("ngb-typeahead-2"));
-        Select select = new Select(dropdown);
-        List<WebElement> options = select.getOptions();
-        int size = options.size();
-        Random rand = new Random();
-        int index = rand.nextInt(size);
-        select.selectByIndex(index);
+//    public void selectRandomValueFromDropdown() {
+//        WebElement dropdown = driver.findElement(By.cssSelector("ngb-typeahead-window"));
+//        Select select = new Select(dropdown);
+//        List<WebElement> options = select.getOptions();
+//        int size = options.size();
+//        Random rand = new Random();
+//        int index = rand.nextInt(size);
+//        select.selectByIndex(index);
+//    }
+
+//    public void selectRandomValueFromDropdown() {
+//        WebElement dropdown = driver.findElement(By.className("status"));
+//
+//    }
     }
-}
 
