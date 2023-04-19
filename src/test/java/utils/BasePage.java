@@ -98,7 +98,7 @@ public class BasePage {
 //        }
 
     public void selectRandomValueFromDropdown() {
-        WebElement dropdown = driver.findElement(By.cssSelector("[id=\"thread.changeClasses\"] input"));
+        WebElement dropdown = driver.findElement(By.xpath("ngb-typeahead-2"));
         Select select = new Select(dropdown);
         List<WebElement> options = select.getOptions();
         int size = options.size();
