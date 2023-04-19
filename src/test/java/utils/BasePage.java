@@ -75,15 +75,13 @@ public class BasePage {
     }
 
     public void selectRandomValueFromDropdown() throws InterruptedException {
-        WebElement dropdown = driver.findElement(By.cssSelector("[role=listbox]"));
-            dropdown.click();
-//            WebDriverWait wait = new WebDriverWait(driver, 100);
-            wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.cssSelector("[role=listbox]"))));
             List<WebElement> itemsInDropdown = driver.findElements(By.cssSelector("[role=listbox]"));
             int size = itemsInDropdown.size();
+        System.out.println(size);
             int randnMumber = ThreadLocalRandom.current().nextInt(0, size);
+        System.out.println(randnMumber);
             itemsInDropdown.get(randnMumber).click();
-            Thread.sleep(2000);
+            Thread.sleep(3);
     }
 //        dropdown.click();
 //        List<WebElement> itemsInDropdown = driver.findElements(By.cssSelector("[role=listbox]"));
