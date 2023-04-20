@@ -10,4 +10,5 @@ public class Constants {
     public static String PASSWORD_WRONG = "Parola!";
     public static String NAME = "This is workiiiing";
     public static String CPN_VALUE = "4023";
+    public static int buttonPosition = 2;
 }

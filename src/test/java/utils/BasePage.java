@@ -84,5 +84,11 @@ public class BasePage {
             Thread.sleep(3);
     }
 
+    public void infoModal(int buttonPosition) throws InterruptedException {
+        By y = By.cssSelector("div.modal-footer > button:nth-child("+ buttonPosition +" )");
+        click(y);
+    }
+
+
     }
 
