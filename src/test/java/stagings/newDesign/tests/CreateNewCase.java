@@ -52,7 +52,7 @@ public class CreateNewCase extends BaseTest {
         basePage.infoModal(buttonPosition);
 
         Thread.sleep(3000);
-        basePage.selectRandomValueForMPN();
+        mainMenu.selectRandomValueForMPN();
     }
 
 }
