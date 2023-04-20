@@ -64,13 +64,13 @@ public class BasePage {
         Assert.assertEquals(readText(elementBy), expectedText);
     }
 
-    public void selectNlLanguage(By elementBy){
+    public void selectNlLanguage(By elementBy) {
         waitVisibility(elementBy);
         driver.findElement(elementBy).click();
     }
 
     public void selectLanguage(int languagePosition) throws InterruptedException {
-        By x = By.cssSelector("app-footer  div > div > div > div:nth-child("+ languagePosition +")");
+        By x = By.cssSelector("app-footer  div > div > div > div:nth-child(" + languagePosition + ")");
         click(x);
     }
 
@@ -78,21 +78,17 @@ public class BasePage {
         List<WebElement> itemsInDropdown = driver.findElements(By.cssSelector("ngb-typeahead-window button"));
         int size = itemsInDropdown.size();
         System.out.println(size);
-            int randnMumber = ThreadLocalRandom.current().nextInt(0, size);
+        int randnMumber = ThreadLocalRandom.current().nextInt(0, size);
         System.out.println(randnMumber);
-            itemsInDropdown.get(randnMumber).click();
-            Thread.sleep(3);
+        itemsInDropdown.get(randnMumber).click();
+        Thread.sleep(3);
     }
 
     public void infoModal(int buttonPosition) throws InterruptedException {
-        By y = By.cssSelector("div.modal-footer > button:nth-child("+ buttonPosition +" )");
+        By y = By.cssSelector("div.modal-footer > button:nth-child(" + buttonPosition + " )");
         click(y);
     }
-
-    public void selectRandomValueForMPN() throws InterruptedException {
-        By MPNInput = By.id("thread.crtNumber");
-        writeText(MPNInput, String.valueOf(5946328));}
-        }
+}
 
 
 

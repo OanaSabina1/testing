@@ -54,8 +54,14 @@ public class CreateNewCase extends BaseTest {
         Thread.sleep(1500);
         mainMenu.selectRandomValueForMPN();
 
-        Thread.sleep(2000);
+        Thread.sleep(1500);
         basePage.infoModal(buttonPosition);
+
+        Thread.sleep(1500);
+        mainMenu.completeDesignationOfTheItem();
+
+        Thread.sleep(2000);
+        mainMenu.completeEmail();
     }
 
 }

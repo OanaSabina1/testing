@@ -19,6 +19,7 @@ public class MainMenu extends BasePage {
     By CPNInput = By.cssSelector("[id=\"thread.artNumber\"] input");
     By designationOfTheItem = By.cssSelector("[id=\"thread.omfShortDescr\"] input");
     By MPNInput = By.cssSelector("[id=\"thread.crtNumber\"] input");
+    By EmailInput = By.cssSelector("[id=\"thread.crtContact\"] input");
 
 
     public void pressCreateCase() throws InterruptedException {
@@ -36,8 +37,17 @@ public class MainMenu extends BasePage {
     }
 
     public void selectRandomValueForMPN() throws InterruptedException {
-        By z = By.cssSelector("span:nth-child(1) > a");
+        By z = By.cssSelector("div:nth-child(2) > span:nth-child(1) > a");
         click(z);
     }
-}
+    public void completeEmail() throws InterruptedException {
+        writeText(EmailInput, String.valueOf("manufacturer@email.com"));
+    }
+
+    public void completeDesignationOfTheItem() throws InterruptedException {
+        if (designationOfTheItem == null){
+            writeText(designationOfTheItem, String.valueOf("DesignationType A"));}
+
+            }
+        }
 
