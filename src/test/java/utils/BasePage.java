@@ -89,6 +89,13 @@ public class BasePage {
         click(y);
     }
 
+    public void selectRandomValueForMPN() throws InterruptedException {
+        By z = By.cssSelector("span:nth-child(1) > a");
+        if (z != null)
+        click(z);
+        else
+        Thread.sleep(3);
+    }
 
     }
 

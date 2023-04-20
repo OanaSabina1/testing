@@ -2,7 +2,11 @@ package stagings.newDesign.pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import utils.BasePage;
+
+import java.util.List;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class MainMenu extends BasePage {
     public Object pressCreateCase;
@@ -14,6 +18,7 @@ public class MainMenu extends BasePage {
     By createCaseButton = By.cssSelector(".fas.fa-folder-plus");
     By CPNInput = By.cssSelector("[id=\"thread.artNumber\"] input");
     By designationOfTheItem = By.cssSelector("[id=\"thread.omfShortDescr\"] input");
+    By MPNValues = By.cssSelector("[id=\"thread.crtNumber\"] input");
 
 
     public void pressCreateCase() throws InterruptedException {
@@ -25,5 +30,9 @@ public class MainMenu extends BasePage {
         writeText(CPNInput, String.valueOf(4023));
     }
 
+    public void selectMPN () throws InterruptedException {
+        click(MPNValues);
+        Thread.sleep(5000);
+    }
 
-}
+    }

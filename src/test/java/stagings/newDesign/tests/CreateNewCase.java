@@ -50,6 +50,9 @@ public class CreateNewCase extends BaseTest {
 
         Thread.sleep(1500);
         basePage.infoModal(buttonPosition);
+
+        Thread.sleep(3000);
+        basePage.selectRandomValueForMPN();
     }
 
 }
