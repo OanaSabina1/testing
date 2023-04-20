@@ -27,7 +27,7 @@ public class MainMenu extends BasePage {
     }
 
     public void completeCPNField() throws InterruptedException {
-        writeText(CPNInput, String.valueOf(22775134));
+        writeText(CPNInput, String.valueOf(4023));
     }
 
     public void selectMPN() throws InterruptedException {
@@ -36,14 +36,8 @@ public class MainMenu extends BasePage {
     }
 
     public void selectRandomValueForMPN() throws InterruptedException {
-        By MPNInput = By.id("thread.crtNumber");
         By z = By.cssSelector("span:nth-child(1) > a");
-        Thread.sleep(1000);
-        if (z != null) {
-            click(z);
-        } else {
-            writeText(MPNInput, String.valueOf(5946328));
-        }
+        click(z);
     }
 }
 
