@@ -44,8 +44,11 @@ public class MainMenu extends BasePage {
     }
 
     public void completeEmail() throws InterruptedException {
-        if (EmailInput == null){
-        writeText(EmailInput, String.valueOf("manufacturer@email.com"));}
+        String elementval = driver.findElement(By.cssSelector("[id=\"thread.crtContact\"] input")).getAttribute("ng-reflect-model");
+        System.out.println(elementval);
+        if (elementval == null)
+            writeText(EmailInput, String.valueOf("a"));
+        else System.out.println(elementval);
     }
 
     public void completeDesignationOfTheItem() throws InterruptedException {
