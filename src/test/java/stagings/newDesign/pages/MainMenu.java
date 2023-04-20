@@ -18,7 +18,7 @@ public class MainMenu extends BasePage {
     By createCaseButton = By.cssSelector(".fas.fa-folder-plus");
     By CPNInput = By.cssSelector("[id=\"thread.artNumber\"] input");
     By designationOfTheItem = By.cssSelector("[id=\"thread.omfShortDescr\"] input");
-    By MPNValues = By.cssSelector("[id=\"thread.crtNumber\"] input");
+    By MPNInput = By.cssSelector("[id=\"thread.crtNumber\"] input");
 
 
     public void pressCreateCase() throws InterruptedException {
@@ -26,13 +26,24 @@ public class MainMenu extends BasePage {
         Thread.sleep(5000);
     }
 
-    public void completeCPNField () throws InterruptedException {
-        writeText(CPNInput, String.valueOf(4023));
+    public void completeCPNField() throws InterruptedException {
+        writeText(CPNInput, String.valueOf(22775134));
     }
 
-    public void selectMPN () throws InterruptedException {
-        click(MPNValues);
+    public void selectMPN() throws InterruptedException {
+        click(MPNInput);
         Thread.sleep(5000);
     }
 
+    public void selectRandomValueForMPN() throws InterruptedException {
+        By MPNInput = By.id("thread.crtNumber");
+        By z = By.cssSelector("span:nth-child(1) > a");
+        Thread.sleep(1000);
+        if (z != null) {
+            click(z);
+        } else {
+            writeText(MPNInput, String.valueOf(5946328));
+        }
     }
+}
+
