@@ -60,8 +60,17 @@ public class CreateNewCase extends BaseTest {
         Thread.sleep(1500);
         mainMenu.completeDesignationOfTheItem();
 
-        Thread.sleep(2000);
+        Thread.sleep(1500);
+        mainMenu.completeManufacturer();
+
+        Thread.sleep(1000);
         mainMenu.completeEmail();
+
+        Thread.sleep(1000);
+        mainMenu.completeMPN();
+
+        Thread.sleep(1000);
+        mainMenu.completeTechnicalDescription();
     }
 
 }

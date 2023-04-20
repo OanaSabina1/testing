@@ -17,9 +17,11 @@ public class MainMenu extends BasePage {
 
     By createCaseButton = By.cssSelector(".fas.fa-folder-plus");
     By CPNInput = By.cssSelector("[id=\"thread.artNumber\"] input");
-    By designationOfTheItem = By.cssSelector("[id=\"thread.omfShortDescr\"] input");
+    By designationOfTheItemInput = By.cssSelector("[id=\"thread.omfShortDescr\"] input");
+    By manufacturerInput = By.cssSelector("[id=\"thread.creator\"] input");
     By MPNInput = By.cssSelector("[id=\"thread.crtNumber\"] input");
     By EmailInput = By.cssSelector("[id=\"thread.crtContact\"] input");
+    By technicalDescriptionInput = By.cssSelector("[id=\"thread.descr\"] input");
 
 
     public void pressCreateCase() throws InterruptedException {
@@ -40,14 +42,35 @@ public class MainMenu extends BasePage {
         By z = By.cssSelector("div:nth-child(2) > span:nth-child(1) > a");
         click(z);
     }
+
     public void completeEmail() throws InterruptedException {
-        writeText(EmailInput, String.valueOf("manufacturer@email.com"));
+        if (EmailInput == null){
+        writeText(EmailInput, String.valueOf("manufacturer@email.com"));}
     }
 
     public void completeDesignationOfTheItem() throws InterruptedException {
-        if (designationOfTheItem == null){
-            writeText(designationOfTheItem, String.valueOf("DesignationType A"));}
-
-            }
+        if (designationOfTheItemInput == null) {
+            writeText(designationOfTheItemInput, String.valueOf("DesignationType A"));
         }
+    }
+
+    public void completeManufacturer() throws InterruptedException {
+        if (manufacturerInput == null) {
+            writeText(manufacturerInput, String.valueOf("Nice"));
+        }
+    }
+
+    public void completeMPN() throws InterruptedException {
+        if (MPNInput == null) {
+            writeText(MPNInput, String.valueOf(20013356));
+        }
+    }
+
+    public void completeTechnicalDescription() throws InterruptedException {
+        if (technicalDescriptionInput == null) {
+            writeText(technicalDescriptionInput, String.valueOf("Electronic"));
+        }
+    }
+}
+
 
