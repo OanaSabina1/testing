@@ -75,9 +75,7 @@ public class BasePage {
     }
 
     public void selectRandomValueFromDropdown() throws InterruptedException {
-        List<WebElement> itemsInDropdown = driver.findElements(By.cssSelector("[role=listbox]"));
-        JavascriptExecutor  js  = (JavascriptExecutor)  driver;
-        js.executeScript("arguments[0].value, itemsInDropdown);
+        List<WebElement> itemsInDropdown = driver.findElements(By.cssSelector("ngb-typeahead-window button"));
         int size = itemsInDropdown.size();
         System.out.println(size);
             int randnMumber = ThreadLocalRandom.current().nextInt(0, size);
@@ -85,41 +83,6 @@ public class BasePage {
             itemsInDropdown.get(randnMumber).click();
             Thread.sleep(3);
     }
-//        dropdown.click();
-//        List<WebElement> itemsInDropdown = driver.findElements(By.cssSelector("[role=listbox]"));
-//        int size = itemsInDropdown.size();
-//        int randomNumber = ThreadLocalRandom.current().nextInt(1, size);
-//        itemsInDropdown.get(randomNumber).click();
-//    }
 
-//    public void selectRandomValueFromDropdown() {
-//        List<WebElement> options = driver.findElements(By.cssSelector("[id=\"thread.changeClasses\"] input"));
-//        Random rand = new Random();
-//        int list = rand.nextInt(options.size());
-//        options.get(list).click();
-//    }
-//        public void selectRandomValue() {
-//            WebElement dropdown = driver.findElement(By.cssSelector("[id=\"thread.changeClasses\"] input"));
-//            dropdown.click();
-//            List<WebElement> options = dropdown.findElements(By.tagName("option"));
-//            int randomIndex = new Random().nextInt(options.size());
-//            options.get(randomIndex).click();
-//            driver.quit();
-//        }
-
-//    public void selectRandomValueFromDropdown() {
-//        WebElement dropdown = driver.findElement(By.cssSelector("ngb-typeahead-window"));
-//        Select select = new Select(dropdown);
-//        List<WebElement> options = select.getOptions();
-//        int size = options.size();
-//        Random rand = new Random();
-//        int index = rand.nextInt(size);
-//        select.selectByIndex(index);
-//    }
-
-//    public void selectRandomValueFromDropdown() {
-//        WebElement dropdown = driver.findElement(By.className(""));
-//
-//    }
     }
 
